@@ -9,9 +9,9 @@ mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${process.env.DATABASE_URL}`)
 })
 
-app.listen(config.port, (err) => {
+app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err)
   }
-  console.info('Server started on port %s.', config.port)
+  console.info('Server started on port %s.', process.env.PORT)
 })
