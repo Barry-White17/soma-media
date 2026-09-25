@@ -4,9 +4,9 @@ import mongoose from 'mongoose'
 
 // Connection URL
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri)
+mongoose.connect(process.env.DATABASE_URL)
 mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${config.mongoUri}`)
+  throw new Error(`unable to connect to database: ${process.env.DATABASE_URL}`)
 })
 
 app.listen(config.port, (err) => {
